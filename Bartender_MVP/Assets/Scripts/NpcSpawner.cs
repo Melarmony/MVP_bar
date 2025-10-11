@@ -2,10 +2,23 @@ using UnityEngine;
 
 public class NpcSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject NpcPrefab;
+    [SerializeField] private GameObject npcPrefab;
+    [SerializeField] private Transform npcSpawnPosition;
+
+    public static float clientCount = 0;
+
+    private void Update()
+    {
+        ClientSpawn();
+    }
+
 
     private void ClientSpawn()
     {
-        Instantiate(NpcPrefab);
+        if (clientCount == 0)
+        {
+            Instantiate(npcPrefab, npcSpawnPosition.position, npcSpawnPosition.rotation);
+            clientCount++;
+        }
     }
 }
