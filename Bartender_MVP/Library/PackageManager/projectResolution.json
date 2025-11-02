@@ -39,6 +39,16 @@
       "source": "registry",
       "testable": false
     },
+    "com.unity.formats.fbx@5.1.5": {
+      "name": "com.unity.formats.fbx",
+      "displayName": "FBX Exporter",
+      "resolvedPath": "F:\\MVP_bar\\Bartender_MVP\\Library\\PackageCache\\com.unity.formats.fbx@86d1698ebb13",
+      "fingerprint": "86d1698ebb13fe759bd88af11aa0aec308c8c3a0",
+      "editorCompatibility": "2020.3.0a1",
+      "version": "5.1.5",
+      "source": "registry",
+      "testable": false
+    },
     "com.unity.ide.rider@3.0.36": {
       "name": "com.unity.ide.rider",
       "displayName": "JetBrains Rider Editor",
@@ -439,6 +449,16 @@
       "editorCompatibility": "6000.0.0a1",
       "version": "17.0.3",
       "source": "builtin",
+      "testable": false
+    },
+    "com.autodesk.fbx@5.1.1": {
+      "name": "com.autodesk.fbx",
+      "displayName": "Autodesk FBX SDK for Unity",
+      "resolvedPath": "F:\\MVP_bar\\Bartender_MVP\\Library\\PackageCache\\com.autodesk.fbx@5797ff6b31c7",
+      "fingerprint": "5797ff6b31c7c66189bffe1adc9cbf0ad5a9cbbf",
+      "editorCompatibility": "2020.3.0a1",
+      "version": "5.1.1",
+      "source": "registry",
       "testable": false
     },
     "com.unity.splines@2.8.1": {
