@@ -30,7 +30,7 @@ public class FSMStateWalk : FSMState
         Debug.Log("Walk state UPDATE");
         MoveToBar();
 
-        if (npcTransform.position.x == npcDrinkPoint.position.x)
+        if (Vector3.Distance(npcTransform.position, npcDrinkPoint.position) > 0.05f)
         {
             Fsm.SetState<FSMStateWait>();
         }
