@@ -3,7 +3,9 @@ using UnityEngine;
 public class NpcController : MonoBehaviour
 {
     public int npcID;
+    public int npcSectorNumber;
     public Renderer npcAuraRender;
+
 
     private void Awake()
     {
@@ -14,7 +16,7 @@ public class NpcController : MonoBehaviour
     }
     public void SetAura(Color color, Material texture = null)
     {
-        var material = texture != null ? new Material(texture) : new Material(Shader.Find("Standard"));
+        Material material = texture != null ? new Material(texture) : new Material(Shader.Find("Standard"));
 
         material.color = color;
 

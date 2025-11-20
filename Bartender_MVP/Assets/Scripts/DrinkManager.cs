@@ -1,9 +1,13 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DrinkManager : MonoBehaviour
 {
     private Dictionary<int, DrinkInfo> npcDrinks = new Dictionary<int, DrinkInfo>();
+
+    [SerializeField] private Transform glassPosition;
+    [SerializeField] private GameObject glassPrefab;
 
     public void AssignDrink(int npcID, DrinkInfo drinkInfo)
     {

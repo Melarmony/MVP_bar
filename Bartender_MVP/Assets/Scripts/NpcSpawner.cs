@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class NpcSpawner : MonoBehaviour
 {
@@ -13,29 +14,40 @@ public class NpcSpawner : MonoBehaviour
 
     public static int nextNpcID = 0;
     public static int clientCount = 0;
+    public static int currentSector = 0;
 
-    private void Update()
+    private void Start()
     {
-        ClientSpawn();
+        StartCoroutine(SpawnLoop());
     }
 
+    private IEnumerator SpawnLoop() 
+    {
+        while (true) 
+        {
+            if (clientCount < 3)
+            {
+                ClientSpawn();
+            }
+            yield return new WaitForSeconds(4f);
+        }
+    }
 
     private void ClientSpawn()
     {
-        if (clientCount == 0)
-        {
-            GameObject npcObject = Instantiate(npcPrefab, npcSpawnPosition.position, npcSpawnPosition.rotation);
-            var npc = npcObject.GetComponent<NpcController>();
+        GameObject npcObject = Instantiate(npcPrefab, npcSpawnPosition.position, npcSpawnPosition.rotation);
+        var npc = npcObject.GetComponent<NpcController>();
 
-            npc.npcID = nextNpcID;
-            nextNpcID++;
+        npc.npcID = nextNpcID;
+        nextNpcID++;
 
-            Color auraColor = auraColors[Random.Range(0, auraColors.Length)];
-            Material auraTexture = auraTextures.Length > 0 ? auraTextures[Random.Range(0, auraTextures.Length)] : null;
+        npc.npcSectorNumber = (currentSector + 1) % 3;
 
-            npc.SetAura(auraColor, auraTexture);
+        Color auraColor = auraColors[Random.Range(0, auraColors.Length)];
+        Material auraTexture = auraTextures.Length > 0 ? auraTextures[Random.Range(0, auraTextures.Length)] : null;
 
-            clientCount++;
-        }
+        npc.SetAura(auraColor, auraTexture);
+
+        clientCount++;
     }
 }
